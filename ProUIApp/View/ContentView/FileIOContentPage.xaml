@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="ProUIApp.View.ContentView.FileIOContentPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProUIApp.View.ContentView"
+             xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1000">
+
+    <Grid>
+        <dragablz:TabablzControl  Name="TabControlAccount">
+
+            <TabItem Header="File Viewer" >
+                <ContentControl  Content="{Binding FileViewerTab.Value}"/>
+            </TabItem>
+            <TabItem Header="File Updater" >
+                <ContentControl Content="{Binding FileUpdaterTab.Value}"/>
+            </TabItem>
+
+            <TabItem Header="Image Viewer" >
+                <ContentControl Content="{Binding ImageViewerTab.Value}"/>
+            </TabItem>
+
+            <TabItem Header="Regex Check" >
+                <ContentControl Content="{Binding RegexCheckTab.Value}"/>
+            </TabItem>
+           
+        </dragablz:TabablzControl>
+
+    </Grid>
+
+</UserControl>
+

@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="ProUIApp.View.ContentView.InstaContentPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProUIApp.View.ContentView"
+             xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <TextBlock>Insta Tab</TextBlock>
+        <!--<dragablz:TabablzControl Name="TabControlAccount">
+
+            <dragablz:TabablzControl.ItemTemplate >
+                <DataTemplate>
+                    <TextBlock Text="{Binding TabName}" />
+                </DataTemplate>
+            </dragablz:TabablzControl.ItemTemplate>
+
+            <dragablz:TabablzControl.ContentTemplate>
+                <DataTemplate>
+                    <UserControl Content="{Binding TabTemplate.Value}" />
+                </DataTemplate>
+            </dragablz:TabablzControl.ContentTemplate>
+        </dragablz:TabablzControl>-->
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:BaseUI.Resources.MainWindowStyle">
+
+    <LinearGradientBrush x:Key="BrushStyle_Insta" StartPoint="0.5,0" EndPoint="0.5,1" >
+        <GradientStop Color="#8A3AB9" Offset="0" />
+        <GradientStop Color="#4C68D7" Offset="1" />
+        <GradientStop Color="#CD486B" Offset="0.209" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="BrushStyle_Folder" StartPoint="0,0" EndPoint="0.5,1" >
+        <GradientStop Color="#FFCBB8B8" Offset="0" />
+        <GradientStop Color="#FF92A5F1" Offset="1" />
+        <GradientStop Color="#FFF37395" Offset="0.209" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="BrushStyle_Verify" StartPoint="0,0" EndPoint="0.5,1" >
+        <GradientStop Color="#FF2162C1" Offset="0" />
+        <GradientStop Color="#FF5D92E0" Offset="1" />
+        <GradientStop Color="#FF40C6EE" Offset="0.209" />
+    </LinearGradientBrush>
+
+
+</ResourceDictionary>

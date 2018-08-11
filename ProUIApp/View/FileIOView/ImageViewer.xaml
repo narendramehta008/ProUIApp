@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="ProUIApp.View.FileIOView.ImageViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProUIApp.View.FileIOView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+              d:DesignHeight="300" d:DesignWidth="1000">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Name="TextBoxFilePath" Style="{StaticResource TextBoxStyle_1}" Text="{Binding FilePath}" IsReadOnly="True"  Width="250"  />
+            <Button Name="ButtonBrowse" Content="Browse" Style="{StaticResource ButtonGradientStyle_1}"  Click="ButtonBrowse_Click" />
+            <!--<Label Name="LabelVisitedFoldersCount" Content="Visited Folders" FontWeight="Bold" Margin="10,2,10,2" VerticalAlignment="Center"  />
+            <TextBox Name="TextBoxVisitedFolderCount" Text="{Binding FoldersVisitedCount, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource TextBoxStyle_1}" Width="100" IsReadOnly="True"  />
+
+            <Label Name="LabelVisitedFilesCount" Content="Visited Files" FontWeight="Bold" Margin="10,2,10,2" VerticalAlignment="Center"  />
+            <TextBox Name="TextBoxVisitedFilesCount" Text="{Binding FilesVisitedCount, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource TextBoxStyle_1}" Width="100" IsReadOnly="True"  />
+            <Button Name="ButtonStop" Content="Stop" Style="{StaticResource ButtonGradientStyle_1}" Click="ButtonStop_Click" ></Button>-->
+
+            <CheckBox Name="CheckBoxDisableSimpleImageList" IsChecked="{Binding DisableSimpleImageList,UpdateSourceTrigger=PropertyChanged}" Checked="CheckBoxDisableSimpleImageList_Checked" Unchecked="CheckBoxDisableSimpleImageList_Unchecked" Content="Disable Simple ListBox" />
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition x:Name="SimpleImageListColumn" Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+
+            <GroupBox Header="UniformGrid Formatted" Margin="5">
+                <ScrollViewer>
+                    <ItemsControl Name="imageList" ItemsSource="{Binding Path=ImageData}" BorderBrush="#FFA90606" Background="Azure">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate >
+                                <UniformGrid Margin="10" Columns="5" >
+                                </UniformGrid>
+                                <!--<WrapPanel Margin="10" >
+                                </WrapPanel>-->
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5" >
+                                    <Image Name="ImageFullName" Source="{Binding Path=FullName, UpdateSourceTrigger=PropertyChanged}" MaxHeight="250" MaxWidth="300" ToolTip="{Binding  Path=Length, StringFormat={}{0:#,###} Kb}"  >
+                                        <Image.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem x:Name="MenuItemImageDelete" Click="MenuItemImageDelete_Click" >
+                                                    <!--Header="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Image}}, Path=Source}"-->
+                                                    <MenuItem.Icon>
+                                                        <materialDesign:PackIcon Kind="Delete"/>
+                                                    </MenuItem.Icon>
+                                                </MenuItem>
+
+                                            </ContextMenu>
+                                        </Image.ContextMenu>
+                                    </Image>
+                                    <TextBox FontWeight="Bold" Text="{Binding Path=Name,Mode=OneWay}" IsReadOnly="True" />
+                                    <TextBlock Text="{Binding  Path=Length, StringFormat={}{0:#,###} Byte}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </GroupBox>
+
+
+
+
+            <GroupBox Name="GroupBoxImageList" Width="340" Header="Simple ListBox" Grid.Column="1" Margin="5" >
+                <ListBox  Name="ListBoxImageList"  ItemsSource="{Binding ImageData}" Background="Beige" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel >
+                                <Image Source="{Binding Path=FullName}" Height="200" Width="300" />
+                                <TextBox FontWeight="Bold" Text="{Binding Path=Name, Mode=OneWay}" IsReadOnly="True" />
+                                <TextBlock Text="{Binding  Path=Length, StringFormat={}{0:#,###} Byte}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </GroupBox>
+
+        </Grid>
+
+
+    </Grid>
+</UserControl>

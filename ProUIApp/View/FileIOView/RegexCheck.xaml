@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ProUIApp.View.FileIOView.RegexCheck"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProUIApp.View.FileIOView"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Regex Expression"  Width="100" Margin="10,4"  />
+            <TextBox Name="TextBox_Regex" Width="300" Margin="10,4"  Style="{StaticResource TextBoxStyle_1 }" Text="{Binding RegexExpression,Mode=TwoWay}" />
+            <TextBox Name="TextBox_Group_1" Width="100" Margin="10,4" Style="{StaticResource TextBoxStyle_1}" Text="{Binding GroupNumber}"  />
+            <Button Name="Button_Submit" Content="Regex-1" Click="Submit_Click" Margin="10,4" Style="{StaticResource ButtonStyle_1}" Width="100"  />
+            <Button Name="Button_Clear" Content="Clear List" Click="Button_Clear_Click" Margin="10,4"  Style="{StaticResource ButtonStyle_1}" Width="100" />
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Orientation="Horizontal">
+            <Label Content="File" Margin="10,4"  Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Name="TextBoxFilePath" Width="300" Margin="10,4" Style="{StaticResource TextBoxStyle_1}" Text="{Binding FilePath}" />
+            <TextBox Name="Rows" Width="100" Margin="10,4" Style="{StaticResource TextBoxStyle_1}"  />
+            <Button Name="ButtonBrowseFile" Content="Browse..." Click="ButtonBrowseFile_Click" Margin="10,4"  Style="{StaticResource ButtonStyle_1}" Width="100"  />
+            <Button Name="Button_ExportCSV" Content="Export to CSV" Click="Button_ExportCSV_Click" Margin="10,4"  Style="{StaticResource ButtonStyle_1}" Width="100"  />
+        </StackPanel>
+
+        <TextBox TextWrapping="Wrap" Padding="5" Text="{Binding FileData, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" Grid.Row="2" Name="RichTextBox_Source" VerticalScrollBarVisibility="Visible" Margin="5"  >
+            <TextBox.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="20" Background="Azure" BorderBrush="#FF70B0F0" BorderThickness="2">
+                        <ScrollViewer x:Name="PART_ContentHost" ></ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+
+        <ListBox ItemsSource="{Binding ListBoxResult, UpdateSourceTrigger=PropertyChanged}"   Grid.Row="3" Padding="5" Name="ListBox_Result"  >
+            <ListBox.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="20" Background="#FFD1D2D3" BorderBrush="#FF70B0F0" BorderThickness="2" >
+                        <ScrollViewer  Margin="0" Focusable="false" >
+                            <StackPanel Margin="2" IsItemsHost="True" />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </ListBox.Template>
+        </ListBox>
+    </Grid>
+</UserControl>

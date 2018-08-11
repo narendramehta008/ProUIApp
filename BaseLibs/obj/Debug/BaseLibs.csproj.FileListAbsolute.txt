@@ -1,0 +1,15 @@
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\BaseLibs.exe.config
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\BaseLibs.exe
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\BaseLibs.pdb
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\DotNetZip.dll
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\EntityFramework.dll
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\EntityFramework.SqlServer.dll
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\System.Data.SQLite.dll
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\DotNetZip.xml
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\EntityFramework.xml
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\bin\Debug\System.Data.SQLite.xml
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\obj\Debug\BaseLibs.exe
+D:\Programming\Programs\Net\ProUIApp\BaseLibs\obj\Debug\BaseLibs.pdb

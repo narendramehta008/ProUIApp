@@ -1,0 +1,6 @@
+bin/**
+obj/**
+CefSharp.Wpf.65.0.0/**
+CefSharp.Common.65.0.0/**
+cef.redist.x86.3.3325.1758/**
+cef.redist.x64.3.3325.1758/**

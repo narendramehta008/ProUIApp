@@ -1,0 +1,14 @@
+D:\Programming\Programs\Net\ProUIApp\MainProj\obj\x86\Debug\MainProj.csprojResolveAssemblyReference.cache
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\MainProj.exe.config
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\MainProj.exe
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\MainProj.pdb
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\BaseUI.exe
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\BaseLibs.exe
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\Newtonsoft.Json.dll
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\DotNetZip.dll
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\BaseUI.pdb
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\BaseLibs.pdb
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\Newtonsoft.Json.xml
+D:\Programming\Programs\Net\ProUIApp\MainProj\bin\x86\Debug\DotNetZip.xml
+D:\Programming\Programs\Net\ProUIApp\MainProj\obj\x86\Debug\MainProj.exe
+D:\Programming\Programs\Net\ProUIApp\MainProj\obj\x86\Debug\MainProj.pdb

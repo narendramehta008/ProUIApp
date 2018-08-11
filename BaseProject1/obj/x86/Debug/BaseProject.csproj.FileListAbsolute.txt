@@ -1,0 +1,16 @@
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\BaseProject.exe.config
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\BaseProject.exe
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\BaseProject.pdb
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\DotNetZip.dll
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\EntityFramework.dll
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\EntityFramework.SqlServer.dll
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\System.Data.SQLite.dll
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\System.Data.SQLite.EF6.dll
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\System.Data.SQLite.Linq.dll
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\DotNetZip.xml
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\EntityFramework.xml
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\EntityFramework.SqlServer.xml
+D:\Programming\Programs\Net\ProUIApp\BaseProject\bin\x86\Debug\System.Data.SQLite.xml
+D:\Programming\Programs\Net\ProUIApp\BaseProject\obj\x86\Debug\BaseProject.csprojResolveAssemblyReference.cache
+D:\Programming\Programs\Net\ProUIApp\BaseProject\obj\x86\Debug\BaseProject.exe
+D:\Programming\Programs\Net\ProUIApp\BaseProject\obj\x86\Debug\BaseProject.pdb
