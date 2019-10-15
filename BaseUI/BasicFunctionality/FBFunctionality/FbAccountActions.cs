@@ -1,4 +1,5 @@
 ﻿using BaseLib.Handlers.WebHandlers;
+using BaseLibs.Handlers.DataHandlers;
 using BaseUI.FBViewModel;
 using Newtonsoft.Json;
 using System;
@@ -28,7 +29,7 @@ namespace BaseUI.BasicFunctionality.FBFunctionality
                 FbUrl.FbLoginPageGetHtml = objHttpHelper.getRequest(FbUrl.FbLoginPageGetUrl);
                 reqParams.Referer = "https://www.facebook.com/";
                 objHttpHelper.SetRequestParameters(reqParams);
-                string lsd = Utils.getBetween(FbUrl.FbLoginPageGetHtml, "name=\"lsd\" value=\"", "\"");
+                string lsd = Utils.GetBetween(FbUrl.FbLoginPageGetHtml, "name=\"lsd\" value=\"", "\"");
                 string str = WebUtility.UrlEncode(fbMainView.UserName);
 
                 FbUrl.FbLoginPostData = "lsd=" + lsd + "&display=&enable_profile_selector=&isprivate=&legacy_return=0&profile_selector_ids=&return_session=&skip_api_login=&signed_next=&trynum=1&timezone=-330&lgndim=eyJ3IjoxMzYwLCJoIjo3NjgsImF3IjoxMzYwLCJhaCI6NzI4LCJjIjoyNH0%3D&lgnrnd=214256_XDPn&lgnjs=1506509243&email=" + WebUtility.UrlEncode(fbMainView.UserName) + "&pass=" + WebUtility.UrlEncode(fbMainView.UserPassword) + "&prefill_contact_point=" + WebUtility.UrlEncode(fbMainView.UserName) + "&prefill_source=browser_dropdown&prefill_type=contact_point";
@@ -38,8 +39,8 @@ namespace BaseUI.BasicFunctionality.FBFunctionality
                 reqParams.Referer = "https://www.facebook.com/";
 
                 FbUrl.FbLoginPostHtml = objHttpHelper.postRequest(FbUrl.FbLoginPostUrl, FbUrl.FbLoginPostData);
-                string reqinfo = Utils.getBetween(FbUrl.FbLoginPostHtml, "menu&quot;,&quot;", "_menu_click&quot;");
-                fbUserDetails.FBUserFullName = Utils.getBetween(FbUrl.FbLoginPostHtml, "class=\"linkWrap noCount\">", "</div>");
+                string reqinfo = Utils.GetBetween(FbUrl.FbLoginPostHtml, "menu&quot;,&quot;", "_menu_click&quot;");
+                fbUserDetails.FBUserFullName = Utils.GetBetween(FbUrl.FbLoginPostHtml, "class=\"linkWrap noCount\">", "</div>");
 
                 if (reqinfo.Contains("logout"))
                 {
@@ -73,24 +74,24 @@ namespace BaseUI.BasicFunctionality.FBFunctionality
         {
             try
             {
-                fbUserDetails.FBAccountId = Utils.getBetween(FbUrl.FbLoginPostHtml, "\"ACCOUNT_ID\":\"", "\"");
-                FbUrl.fb_dtsg = Utils.getBetween(FbUrl.FbLoginPostHtml, "{\"token\":\"", "\"");
+                fbUserDetails.FBAccountId = Utils.GetBetween(FbUrl.FbLoginPostHtml, "\"ACCOUNT_ID\":\"", "\"");
+                FbUrl.fb_dtsg = Utils.GetBetween(FbUrl.FbLoginPostHtml, "{\"token\":\"", "\"");
                 FbUrl.fb_dtsg = Uri.EscapeDataString(FbUrl.fb_dtsg);
-                FbUrl._spin_r = Utils.getBetween(FbUrl.FbLoginPostHtml, "spin_r\":", ",");
-                FbUrl._spin_t = Utils.getBetween(FbUrl.FbLoginPostHtml, "_spin_t\":", ",");
-                FbUrl.ClientRevision = Utils.getBetween(FbUrl.FbLoginPostHtml, "server_revision\":", ",");
-                fbUserDetails.FBUserName = Utils.getBetween(FbUrl.FbLoginPostHtml, "title=\"" + fbUserDetails.FBUserFullName + "\" href=\"", "?");
+                FbUrl._spin_r = Utils.GetBetween(FbUrl.FbLoginPostHtml, "spin_r\":", ",");
+                FbUrl._spin_t = Utils.GetBetween(FbUrl.FbLoginPostHtml, "_spin_t\":", ",");
+                FbUrl.ClientRevision = Utils.GetBetween(FbUrl.FbLoginPostHtml, "server_revision\":", ",");
+                fbUserDetails.FBUserName = Utils.GetBetween(FbUrl.FbLoginPostHtml, "title=\"" + fbUserDetails.FBUserFullName + "\" href=\"", "?");
                 fbUserDetails.FBUserName = fbUserDetails.FBUserName.Replace("https://www.facebook.com/", "");
                 FbUrl.FbProfileUrl = "https://www.facebook.com/" + fbUserDetails.FBUserName;
                 FbUrl.FbProfileHtml = objHttpHelper.getRequest(FbUrl.FbProfileUrl);
                 if (FbUrl.FbProfileHtml.Contains("No automatic alt text available.\" src=\""))
-                    fbUserDetails.FBUserPhotoUrl = Utils.getBetween(FbUrl.FbProfileHtml, "No automatic alt text available.\" src=\"", "\"");
+                    fbUserDetails.FBUserPhotoUrl = Utils.GetBetween(FbUrl.FbProfileHtml, "No automatic alt text available.\" src=\"", "\"");
                 else if (FbUrl.FbProfileHtml.Contains("img\" alt=\"your profile photo\" src=\""))
-                    fbUserDetails.FBUserPhotoUrl = Utils.getBetween(FbUrl.FbProfileHtml, "img\" alt=\"your profile photo\" src=\"", "\"");
+                    fbUserDetails.FBUserPhotoUrl = Utils.GetBetween(FbUrl.FbProfileHtml, "img\" alt=\"your profile photo\" src=\"", "\"");
                 else if (FbUrl.FbProfileHtml.Contains("<img class=\"profilePic"))
                 {
-                    string temp = Utils.getBetween(FbUrl.FbProfileHtml, "<img class=\"profilePic", "https");
-                    fbUserDetails.FBUserPhotoUrl = Utils.getBetween(FbUrl.FbProfileHtml, temp, "\"");
+                    string temp = Utils.GetBetween(FbUrl.FbProfileHtml, "<img class=\"profilePic", "https");
+                    fbUserDetails.FBUserPhotoUrl = Utils.GetBetween(FbUrl.FbProfileHtml, temp, "\"");
                 }
                 fbUserDetails.FBUserPhotoUrl = WebUtility.HtmlDecode(fbUserDetails.FBUserPhotoUrl);
                 FbUrl.jazoest = "265817084536781103101118551065865817251684511688781178355";
@@ -124,7 +125,7 @@ namespace BaseUI.BasicFunctionality.FBFunctionality
                     userNames.ForEach(strs =>
                     {
                         if (strs.Contains("\"display\":[\"") && !strs.Contains("\n"))
-                            suggestions.Add(Utils.getBetween(strs, "\"display\":[\"", "\""));
+                            suggestions.Add(Utils.GetBetween(strs, "\"display\":[\"", "\""));
                     });
                 }
 

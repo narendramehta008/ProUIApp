@@ -1,4 +1,5 @@
-﻿using BaseUI.EnumsPack;
+﻿using BaseLibs.Handlers.BindManager;
+using BaseUI.EnumsPack;
 using BaseUI.MainViewModel;
 using System;
 using System.Collections.Generic;

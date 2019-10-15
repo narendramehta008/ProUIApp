@@ -22,15 +22,11 @@ namespace BaseLib.Handlers.FileHandlers
                 try
                 {
                     if (!File.Exists(filePath))
-                    {
                         File.Create(filePath);
-                    }
 
                     Encoding encode = Encoding.GetEncoding("UTF-*");
                     using (StreamWriter sw = new StreamWriter(filePath, true, encode))
-                    {
                         sw.WriteLine(data);
-                    }
 
                 }
                 catch { }

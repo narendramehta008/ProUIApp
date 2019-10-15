@@ -1,4 +1,9 @@
 ﻿//using BaseProject.Handlers;
+using BaseLibs.EntityModel.CodeFirstApproach.CodeFirstConfiguration;
+using BaseLibs.Handlers.ExceptionConfigPack;
+using BaseLibs.Handlers.FileHandlers;
+using BaseLibs.Handlers.LoggerConfigPack;
+using BaseLibs.Models.DemoModels;
 using BaseUI.MainViewModel;
 using FirstFloor.ModernUI.Windows.Controls;
 using MainProj;
@@ -26,6 +31,7 @@ namespace ProUIApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public delegate void InfoLogger(string messge);
         MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
         public MainWindow()
         {
@@ -37,10 +43,15 @@ namespace ProUIApp
         {
             try
             {
-               DataContext = mainWindowViewModel;
-               mainWindowViewModel.CurrentTab = new Lazy<UserControl>(AccountContentPage.getObj);
-               // CopyFiles.Copydata();
+                Logger.InfoLogger += AddToInfoLogger;
+                //PathMapper.DBPathHandler();
+                //DbContextMapper dbContextMapper = new DbContextMapper();
+                //DbHandler dbHandler = new DbHandler(dbContextMapper.GetDBContext());
+                //dbHandler.AddData(new DemoModelOne() { ID = 1, Name = "one"/*, ListData = new List<string>() { "one", "two" }*/ });
+                // var demo = AccountContentPage.getObj();
+                mainWindowViewModel.CurrentTab = AccountContentPage.getObj(); //new Lazy<UserControl>(()=>AccountContentPage.getObj());
 
+                // CopyFiles.Copydata();
                 Class1 a = new Class1();
                 a.chal();
 
@@ -59,29 +70,29 @@ namespace ProUIApp
                 switch (tabSwitch)
                 {
                     case "AllAccountTab":
-                        mainWindowViewModel.CurrentTab = new Lazy<UserControl>(AccountContentPage.getObj);
+                        mainWindowViewModel.CurrentTab = AccountContentPage.getObj();//new Lazy<UserControl>(AccountContentPage.getObj);
                         break;
 
                     case "InstagramTab":
-                        mainWindowViewModel.CurrentTab = new Lazy<UserControl>(InstaContentPage.getObj);
+                        mainWindowViewModel.CurrentTab = InstaContentPage.getObj();//new Lazy<UserControl>(InstaContentPage.getObj);
                         break;
 
                     case "FacebookTab":
-                        mainWindowViewModel.CurrentTab = new Lazy<UserControl>(FBContentPage.getObj);
+                        mainWindowViewModel.CurrentTab = FBContentPage.getObj();// new Lazy<UserControl>(FBContentPage.getObj);
                         break;
                     //case "TwitterTab":
                     //    GridMain.DataContext = TwitterTab.getObj();
                     //    break;
                     case "PinterestTab":
-                        mainWindowViewModel.CurrentTab = new Lazy<UserControl>(PinContentPage.getObj);
+                        mainWindowViewModel.CurrentTab = PinContentPage.getObj();// new Lazy<UserControl>(PinContentPage.getObj);
                         break;
 
                     case "FileIOTab":
-                        mainWindowViewModel.CurrentTab = new Lazy<UserControl>(FileIOContentPage.getObj);
+                        mainWindowViewModel.CurrentTab = FileIOContentPage.getObj();//new Lazy<UserControl>(()=>FileIOContentPage.getObj());
                         break;
 
                     case "DemoTab":
-                        mainWindowViewModel.CurrentTab = new Lazy<UserControl>(DemoContentPage.getObj);
+                        mainWindowViewModel.CurrentTab = DemoContentPage.getObj();// new Lazy<UserControl>(()=>DemoContentPage.getObj());
                         break;
 
                 }
@@ -112,6 +123,21 @@ namespace ProUIApp
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void AddToInfoLogger(string message)
+        {
+            try
+            {
+                ListViewInfoLogger.Dispatcher.Invoke(new Action(delegate
+                {
+                    ListViewInfoLogger.Items.Insert(0, $"{DateTime.Now.ToString("yyyy/dd/MM HH:ss => ")} {message}");
+                }));
+            }
+            catch (Exception ex)
+            {
+                ex.ErrorLog(ex.ToString());
             }
         }
     }

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ProUIApp"
               xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindowNew.xaml">
     
     
     <Application.Resources>
@@ -13,14 +13,12 @@
                 <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.xaml" />
                 <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml"/>
 
-
                 <!--Material Design-->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Teal.xaml" />
 
-                
                 <!--BaseUI-->
                 
                 <ResourceDictionary Source="pack://application:,,,/BaseUI;component/Resources/MainWindowStyle/SlideStyle.xaml" />
@@ -63,9 +61,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!-- tell Dragablz tab control to use the Material Design theme -->
-
-
             <Style TargetType="{x:Type dragablz:TabablzControl}" BasedOn="{StaticResource MaterialDesignTabablzControlStyle}" />
+       
         </ResourceDictionary>
          
     </Application.Resources>

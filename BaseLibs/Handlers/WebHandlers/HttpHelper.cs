@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 namespace BaseLib.Handlers.WebHandlers
 {
@@ -270,20 +271,7 @@ namespace BaseLib.Handlers.WebHandlers
         }
     }
 
-    public class Utils
-    {
-        public static String getBetween(String source, String startString, String endString)
-        {
-            String str = "";
-            if (source.Contains(startString) && (source.Contains(endString)))
-            {
-                int start = source.IndexOf(startString) + startString.Length;
-                int end = source.IndexOf(endString, start);
-                str = source.Substring(start, end - start);
-            }
-            return str;
-        }
-    }
+   
     public class RequestParameters
     {
         RequestParameters requestParameters;

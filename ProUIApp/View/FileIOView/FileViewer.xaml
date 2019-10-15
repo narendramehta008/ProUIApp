@@ -60,6 +60,8 @@
 
                 <TreeView Name="trvFolders" Margin="10">
                     <TreeView.Resources>
+                        
+                        <!-- Hierarchical header template -->
                         <HierarchicalDataTemplate DataType="{x:Type fileView:Folders}" ItemsSource="{Binding ListFiles}">
                             <StackPanel Orientation="Horizontal">
                                 <!--<Image Source="/WpfTutorialSamples;component/Images/group.png" Margin="0,0,5,0" />-->
@@ -69,6 +71,8 @@
                                 <TextBlock Text="]" Foreground="Blue" />
                             </StackPanel>
                         </HierarchicalDataTemplate>
+
+                        <!-- Hierarchical content template -->
                         <DataTemplate DataType="{x:Type fileView:FileData}">
                             <StackPanel Orientation="Horizontal">
                                 <!--<Image Source="/WpfTutorialSamples;component/Images/user.png" Margin="0,0,5,0" />-->

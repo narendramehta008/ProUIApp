@@ -1,4 +1,5 @@
 ﻿
+using BaseLibs.Handlers.BindManager;
 using BaseUI.MainViewModel;
 
 using System;

@@ -12,7 +12,7 @@
         <dragablz:TabablzControl  Name="TabControlAccount">
 
             <TabItem Header="File Viewer" >
-                <ContentControl  Content="{Binding FileViewerTab.Value}"/>
+                <ContentControl  Content="{Binding FileViewerTab}"/>
             </TabItem>
             <TabItem Header="File Updater" >
                 <ContentControl Content="{Binding FileUpdaterTab.Value}"/>

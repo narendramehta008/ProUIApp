@@ -1,0 +1,94 @@
+﻿<Window x:Class="ProUIApp.MainWindowNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProUIApp"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+       xmlns:Tabsizer="clr-namespace:BaseUI.Convertors;assembly=BaseUI"
+        xmlns:contentTab="clr-namespace:ProUIApp.View.ContentView"
+         WindowStyle="None"
+        Margin="15"
+        Closing="Window_Closing"
+         MinHeight="600" Width="1000"  WindowStartupLocation="CenterScreen">
+
+    <!--<Window.Resources>
+        <Tabsizer:TabSizeConverter x:Key="tabSizeConverter" />
+        <Style TargetType="{x:Type Grid}">
+            <Setter Property="Height">
+                <Setter.Value>
+                    <MultiBinding Converter="{StaticResource tabSizeConverter}">
+                        <Binding RelativeSource="{RelativeSource Mode=FindAncestor,
+            AncestorType={x:Type TabControl}}" />
+                        <Binding RelativeSource="{RelativeSource Mode=FindAncestor,
+            AncestorType={x:Type TabControl}}" Path="ActualWidth" />
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>-->
+
+
+    <Grid Style="{Binding tabSizeConverter}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition  Height="*"/>
+            <RowDefinition x:Name="GridFooter" Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Grid >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Assets\v1pro.png"/>
+            </StackPanel>
+            
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right">
+                <ComboBox x:Name="Languages" Width="150" ItemsSource="{Binding Languages}" SelectionChanged="Languages_Selected" Margin="10,0,5,0" SelectedItem="{Binding SelectedLanguage}"/>
+                <Button  Name="WindowMinimize" Background="White"  Click="WindowMinimize_Click">
+                    <materialDesign:PackIcon  Foreground="Gray" Kind="WindowMinimize"/>
+                </Button>
+                <Button  Name="WindowMaximize" ToolTip="{Binding WindowMaximize,UpdateSourceTrigger=PropertyChanged}" Background="White"  Click="WindowMaximize_Click" >
+                    <StackPanel>
+                        <materialDesign:PackIcon Name="WindowMaximizeIcon" Visibility="{Binding WindowMaximizeIcon}" Foreground="Gray" Kind="WindowMaximize"/>
+                        <materialDesign:PackIcon Name="WindowRestoreIcon" Visibility="{Binding WindowRestoreIcon}" Foreground="Gray" Kind="WindowRestore"/>
+                    </StackPanel>
+                </Button>
+                <Button  Name="WindowClose" Background="White" Command="{Binding WindowCloseCommand}" Click="WindowClose_Click" >
+                    <materialDesign:PackIcon  Foreground="Gray" Kind="WindowClose"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!--HeaderMemberPath="TabName"-->
+        <Grid Grid.Row="1">
+            <dragablz:TabablzControl  HeaderMemberPath="TabName" ItemsSource="{Binding ListTabItemTemplate,UpdateSourceTrigger=PropertyChanged}"
+                               TabStripPlacement="Left"  SelectedIndex="0">
+
+                <!--<dragablz:HeaderedDragablzItem>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="{Binding IconType}"/>
+                    <TextBlock Text="{Binding TabName}" /> 
+                </StackPanel>
+            </dragablz:HeaderedDragablzItem>-->
+
+                <dragablz:TabablzControl.ContentTemplate>
+                    <DataTemplate>
+                        <UserControl Content="{Binding TabTemplate.Value}" />
+                    </DataTemplate>
+                </dragablz:TabablzControl.ContentTemplate>
+            </dragablz:TabablzControl>
+        </Grid>
+        
+        
+        <dragablz:TabablzControl Grid.Row="2"  >
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController  />
+            </dragablz:TabablzControl.InterTabController>
+
+            <TabItem Header="Logger ">
+                <ListView x:Name="ListViewLogger" ItemsSource="{Binding Logger}" MouseDoubleClick="ListViewLogger_MouseDoubleClick"  />
+            </TabItem>
+        </dragablz:TabablzControl>
+       
+    </Grid>
+</Window>

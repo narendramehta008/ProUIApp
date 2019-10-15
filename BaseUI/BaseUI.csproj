@@ -82,6 +82,21 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.16.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.16\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1185, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.0-ci1185\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Windows.Shell.3.0.1.0\lib\net40\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -107,6 +122,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AccountViewModel\AccountModel.cs" />
+    <Compile Include="AccountViewModel\ProxyModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -121,13 +138,20 @@
     <Compile Include="ContentViewModel\InstaContentPageViewModel.cs" />
     <Compile Include="ContentViewModel\PinContentPageViewModel.cs" />
     <Compile Include="ContentViewModel\TDContentPageViewModel.cs" />
+    <Compile Include="Convertors\TabSizeConverter.cs" />
+    <Compile Include="CustomControls\FetchDataInputBox.xaml.cs">
+      <DependentUpon>FetchDataInputBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\PatternCustomControl.xaml.cs">
+      <DependentUpon>PatternCustomControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EnumsPack\CustomControlEnums.cs" />
     <Compile Include="EnumsPack\DemoTabEnums.cs" />
     <Compile Include="FBViewModel\FBMainPageViewModel.cs" />
     <Compile Include="FileIOViewModel\FileUpdaterViewModel.cs" />
     <Compile Include="FileIOViewModel\FileViewerView.cs" />
     <Compile Include="FileIOViewModel\ImageViewerViewModel.cs" />
     <Compile Include="FileIOViewModel\RegexCheckView.cs" />
-    <Compile Include="MainViewModel\BindableObject.cs" />
     <Compile Include="MainViewModel\MainWindowViewModel.cs" />
     <Compile Include="MainViewModel\TabItemTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -160,13 +184,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AccountViewModel\" />
     <Folder Include="InstaViewModel\" />
     <Folder Include="MainViewModel\PinViewModel\" />
     <Folder Include="Resources\FileIOStyle\" />
     <Folder Include="TDViewModel\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CustomControls\FetchDataInputBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\PatternCustomControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\MainWindowStyle\AllRes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,4 +1,5 @@
-﻿using BaseUI.MainViewModel;
+﻿using BaseLibs.Handlers.BindManager;
+using BaseUI.MainViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -190,19 +191,19 @@ namespace BaseUI.FileIOViewModel
 
 
 
-    public class Folder
-    {
-        public Folder()
+        public class Folder
         {
-            Files = new ObservableCollection<string>();
-            Folders = new ObservableCollection<Folder>();
-        }
-        public string FullPath { get; set; }
-        public ObservableCollection<string> Files { get; set; }
-        // public string FolderLabel { get; set; }
-        public ObservableCollection<Folder> Folders { get; set; }
+            public Folder()
+            {
+                Files = new ObservableCollection<string>();
+                Folders = new ObservableCollection<Folder>();
+            }
+            public string FullPath { get; set; }
+            public ObservableCollection<string> Files { get; set; }
+            // public string FolderLabel { get; set; }
+            public ObservableCollection<Folder> Folders { get; set; }
 
-    }
+        }
 
 
     public class Folders

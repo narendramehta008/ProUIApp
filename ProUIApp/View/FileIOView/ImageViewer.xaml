@@ -41,8 +41,8 @@
                     <ItemsControl Name="imageList" ItemsSource="{Binding Path=ImageData}" BorderBrush="#FFA90606" Background="Azure">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate >
-                                <UniformGrid Margin="10" Columns="5" >
-                                </UniformGrid>
+                                <UniformGrid Margin="10" Columns="5" />
+
                                 <!--<WrapPanel Margin="10" >
                                 </WrapPanel>-->
                             </ItemsPanelTemplate>

@@ -1,4 +1,5 @@
-﻿using BaseUI.MainViewModel;
+﻿using BaseLibs.Handlers.BindManager;
+using BaseUI.MainViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

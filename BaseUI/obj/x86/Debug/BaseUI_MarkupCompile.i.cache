@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Programming\Programs\Net\ProUIApp\BaseUI\obj\x86\Debug\
+D:\Programming\Programs\GitHub Repositories\System\ProUIApp\BaseUI\obj\x86\Debug\
 BaseUI
 none
 false
 DEBUG;TRACE
-D:\Programming\Programs\Net\ProUIApp\BaseUI\App.xaml
-31169477236
+D:\Programming\Programs\GitHub Repositories\System\ProUIApp\BaseUI\App.xaml
+5-1118938348
 
-25-429884132
-19980764295
-Resources\MainWindowStyle\AllRes.xaml;Resources\MainWindowStyle\IconStyles.xaml;Resources\MainWindowStyle\SlideStyle.xaml;
+3040122994
+24-162239832
+CustomControls\FetchDataInputBox.xaml;CustomControls\PatternCustomControl.xaml;Resources\MainWindowStyle\AllRes.xaml;Resources\MainWindowStyle\IconStyles.xaml;Resources\MainWindowStyle\SlideStyle.xaml;
 
 True
 

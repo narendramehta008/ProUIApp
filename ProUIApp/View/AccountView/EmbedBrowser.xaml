@@ -1,0 +1,43 @@
+﻿<Window x:Class="ProUIApp.View.AccountView.EmbedBrowser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProUIApp.View.AccountView"
+          xmlns:cefsharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowState="Maximized"
+        mc:Ignorable="d"
+        Title="EmbedBrowser" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Button Background="White" Foreground="DarkGray" BorderBrush="Transparent" Width="50"  Click="ButtonBack_OnClick">
+                    <material:PackIcon  Kind="ArrowLeft"/>
+                </Button>
+                <Button Background="White" Foreground="DarkGray" BorderBrush="Transparent" Width="50" Click="ButtonForward_OnClick">
+                    <material:PackIcon Kind="ArrowRight"/>
+                </Button>
+            </StackPanel>
+            <TextBox x:Name="UrlBar" Grid.Column="1" FontSize="13" FontWeight="SemiBold"   Height="34"  VerticalContentAlignment="Center"  Text=""/>
+
+            <Button  Grid.Column="2" Width="80" Content="Search" Click="ButtonRefresh_OnClick"/>
+        </Grid>
+
+
+        <Grid Margin="0,10,0,0" Grid.Row="1">
+            <cefsharp:ChromiumWebBrowser x:Name="Browser" x:FieldModifier="public" Address="https://www.google.com" UseLayoutRounding="True"
+                                    RenderOptions.BitmapScalingMode="NearestNeighbor" />
+        </Grid>
+    </Grid>
+</Window>

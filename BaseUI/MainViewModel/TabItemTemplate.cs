@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using MaterialDesignColors;
+using MaterialDesignThemes.Wpf;
 
 namespace BaseUI.MainViewModel
 {
@@ -11,5 +13,6 @@ namespace BaseUI.MainViewModel
     {
         public string TabName { get; set; }
         public Lazy<UserControl>  TabTemplate { get; set; }
+        public PackIconKind IconType;
     }
 }

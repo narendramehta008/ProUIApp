@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/demoview/emoji.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/v1pro.png")]
 
 

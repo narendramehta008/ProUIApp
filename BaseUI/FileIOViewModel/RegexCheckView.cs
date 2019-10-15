@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using BaseUI.MainViewModel;
+using BaseLibs.Handlers.BindManager;
 
 namespace BaseUI.FileIOViewModel
 {
